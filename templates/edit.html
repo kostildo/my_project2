@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    <meta charset="utf-8" />
+    <title>Список студентов на отчисление</title>
+
+</head>
+ <body  class="container">
+    <form method="POST" align="center">
+        {% csrf_token %}
+             <table>
+        <tr>
+            <th align="right">Ф.И.О</th>
+            <th align="left"><input type="text" class="text" name="Full_Name" /></th>
+        </tr>
+<tr>
+            <th align="right">Факультет</th>
+            <th align="left"><input type="real" class="text" name="Faculty" /></th>
+        </tr>
+<tr>
+            <th align="right">Группа</th>
+            <th align="left"><input type="text" class="text" name="Group" /></th>
+        </tr>
+<tr>
+            <th align="right">Курс</th>
+            <th align="left"><input type="number" class="text" name="Course" /></th>
+        </tr>
+<tr>
+            <th align="right">Дата отчисления</th>
+            <th align="left"><input type="text" class="text" name="Date" /></th>
+        </tr>
+<tr>
+            <th align="right">Причина отчисления</th>
+            <th align="left"><input type="text" class="text" name="Reason" /></th>
+        </tr>
+</table>
+
+        <input type="submit" value="Изменить" >
+    </form>
+</body>
+</html>

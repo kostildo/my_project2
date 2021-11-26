@@ -1,0 +1,46 @@
+table {
+  margin: auto;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 16px;
+  background: white;
+  max-width: 70%;
+  width: 70%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+
+th {
+  align: "center";
+  font-weight: normal;
+  color: #039;
+  padding: 10px 15px;
+}
+td {
+  align: "center";
+  color: #669;
+  border-top: 1px solid #e8edff;
+  padding: 10px 15px;
+}
+th.lc {
+    text-align: left;
+}
+th.rc {
+    text-align: right;
+}
+
+h2 {text-align: center;
+    color: #039;}
+text {
+
+		width:  350px;
+		height: 16px;
+		padding: 5px 10px 5px 10px;
+		border:1px solid #999;
+		font-size:17px;
+        color: #039;
+}
+label {
+  font-size:17px;
+  color: #039;
+}

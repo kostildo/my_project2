@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+    </style>
+</head>
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    <meta charset="utf-8" />
+    <title>Список студентов на отчисление</title>
+</head>
+<body >
+	
+    {% if Student.count > 0 %}
+    <h2>Список студентов подлежащих отчислению</h2>
+
+    <table>
+        <tr>
+            <th>Ф.И.О</th><th>Факультет</th>
+            <th>Группа</th><th>Курс</th>
+            <th>Дата отчисления</th>
+            <th>Причина отчисления</th>
+        </tr>
+        {% for Student in Student %}
+        <tr>
+            <td>{{ Student.Full_Name }}</td>
+            <td align="center">{{ Student.Faculty }}</td>
+            <td align="center">{{ Student.Group }}</td>
+            <td align="center">{{ Student.Course }}</td>
+            <td align="center"> {{ Student.Date }}</td>
+            <td align="center"> {{ Student.Reason }}</td>
+            <td><form action="edit/{{Student.id}}" ><button>Редактировать</button></form></td>
+            <td><form action="delete/{{Student.id}}" ><button>Удалить</button></form></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+	<h2>Добавить студента</h2>
+	<form method="POST" action="create/" align="center">
+        {% csrf_token %}
+        <table>
+        <tr>
+            <th class="rc">Ф.И.О</th>
+            <th class="lc"><input type="text" class="text" name="Full_Name" /></th>
+        </tr>
+<tr>
+            <th class="rc">Факультет</th>
+            <th class="lc"><input type="real" class="text" name="Faculty" /></th>
+        </tr>
+<tr>
+            <th class="rc">Группа</th>
+            <th class="lc"><input type="text" class="text" name="Group" /></th>
+        </tr>
+<tr>
+            <th class="rc">Курс</th>
+            <th class="lc"><input type="number" class="text" name="Course" /></th>
+        </tr>
+<tr>
+            <th class="rc">Дата отчисления</th>
+            <th class="lc"><input type="text" class="text" name="Date" /></th>
+        </tr>
+<tr>
+            <th class="rc">Причина отчисления</th>
+            <th class="lc"><input type="text" class="text" name="Reason" /></th>
+        </tr>
+</table>
+
+        <input type="submit" value="Добавить" >
+    </form>
+</body>
+</html>
